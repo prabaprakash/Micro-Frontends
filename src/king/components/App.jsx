@@ -13,7 +13,7 @@ export default class App extends React.Component {
   }
   render() {
     return (<div className="container">
-      King
+      King Welcome
       <Button bsStyle="primary" onClick={() => this.props.add(this.props.number)}>
           +
       </Button>

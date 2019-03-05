@@ -1,5 +1,7 @@
 <template>
-  <div class="hello"><p>Avatar from VUE</p></div>
+  <div class="hello"><p>Avatar from VUE</p>
+  <div> welcome to VUE JS</div>
+  </div>
 </template>
 
 <script>
