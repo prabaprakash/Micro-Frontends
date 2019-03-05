@@ -66,6 +66,7 @@
     "stylelint": "^9.5.0",
     "stylelint-config-standard": "^18.2.0",
     "testdouble": "^3.8.1",
+    "to-string-loader": "^1.1.5",
     "uglifyjs-webpack-plugin": "^1.3.0",
     "vue-loader": "^15.7.0",
     "vue-template-compiler": "^2.6.8",
@@ -89,7 +90,6 @@
     "body-parser": "^1.18.3",
     "connected-react-router": "^6.3.1",
     "core-js": "^2.4.1",
-    "zone.js": "^0.8.29",
     "express": "^4.16.3",
     "history": "^4.7.2",
     "pm2": "^3.0.4",
@@ -105,7 +105,8 @@
     "request-promise": "^4.2.2",
     "rxjs": "^6.2.2",
     "typescript": "^3.3.3333",
-    "vue": "^2.6.8"
+    "vue": "^2.6.8",
+    "zone.js": "^0.8.29"
   },
   "nyc": {
     "extension": [
