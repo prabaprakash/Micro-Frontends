@@ -38,5 +38,5 @@ render(
       </div>
     </ConnectedRouter>
   </Provider>,
-  document.getElementById('app')
+  document.getElementById('kong')
 );

@@ -13,6 +13,7 @@ export default class App extends React.Component {
   }
   render() {
     return (<div className="container">
+      Kong
       <Button bsStyle="primary" onClick={() => this.props.add(this.props.number)}>
           +
       </Button>

@@ -3,17 +3,22 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 require('babel-polyfill');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const BUILD_DIR = path.resolve(__dirname, 'src/dist/public');
-const APP_DIR = path.resolve(__dirname, 'src/client');
+const APP_KING_DIR = path.resolve(__dirname, 'src/king');
+const APP_KONG_DIR = path.resolve(__dirname, 'src/kong');
+const APP_AVATAR_DIR = path.resolve(__dirname, 'src/vue');
 module.exports = {
   cache: true,
   entry: {
-    js: ['babel-polyfill', APP_DIR + '/index.js'],
+    king: ['babel-polyfill', APP_KING_DIR + '/index.js'],
+    kong: [APP_KONG_DIR + '/index.js'],
+    vue: [APP_AVATAR_DIR + '/main.js']
   },
   output: {
     path: path.resolve('./src/dist/public'),
-    filename: 'bundle.js',
+    filename: '[name].js',
   },
   module: {
     rules: [
@@ -34,10 +39,21 @@ module.exports = {
           use: ['css-loader', 'sass-loader'],
         }),
       },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+          'css-loader'
+        ]
+      }
     ],
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['*', '.js', '.jsx', '.vue'],
   },
   plugins: [
     new ExtractTextPlugin('bundle.css'),
@@ -45,6 +61,7 @@ module.exports = {
       manifest: require(path.join(BUILD_DIR, 'lib-manifest.json')),
       extensions: ['.js', '.jsx'],
     }),
+    new VueLoaderPlugin()
   ],
   optimization: {
     minimizer: [
