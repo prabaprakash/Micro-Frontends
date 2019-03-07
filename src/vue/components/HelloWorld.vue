@@ -1,6 +1,6 @@
 <template>
   <div class="hello"><p>Avatar from VUE</p>
-  <div> welcome to VUE JS</div>
+  <div>{{msg}}</div>
   </div>
 </template>
 
