@@ -1,4 +1,4 @@
-<img src="https://raw.githubusercontent.com/prabaprakash/React-Redux-Saga-Boilerplate/master/doc/micro_frontends.png" alt="react redux boilerplate banner" align="center" />
+<img src="https://raw.githubusercontent.com/prabaprakash/Micro-Frontends/master/doc/micro_frontends.png" alt="react redux boilerplate banner" align="center" />
 
 <br />
 
