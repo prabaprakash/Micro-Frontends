@@ -1,5 +1,5 @@
 <template>
-  <div id="app"><HelloWorld msg="msg"/></div>
+  <div class="vue"><HelloWorld msg="I'm progressive, incrementally-adoptable JavaScript framework for building UI on the web."/></div>
 </template>
 
 <script>
@@ -14,12 +14,18 @@ export default {
 </script>
 
 <style>
-#app {
+.vue {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  border: 3px solid green;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 57px;
+  margin-left: 57px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

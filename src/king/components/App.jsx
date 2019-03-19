@@ -9,36 +9,35 @@ export default class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleAction = this.handleAction.bind(this);
     this.handleJSLoad = this.handleJSLoad.bind(this);
-    this.state = { number: 100 };
   }
   handleChange(e) {
     if (parseInt(e.target.value)) {
       const number = this.state.number;
-      this.setState({ number: number + parseInt(e.target.value) });
+      this.props.change({ number: number + parseInt(e.target.value) });
     }
   }
   handleAction(type) {
-    let event = new CustomEvent("onsumitsubmit", { detail: { number: 10 } });
-    document.dispatchEvent(event);
-
     if (type === "add") {
-      const number = this.state.number;
-      this.setState({ number: number + 1 });
+      this.props.add(this.props.number);
+
+      let event = new CustomEvent("acknowledgeKong", { detail: { type: "add" } });
+      document.dispatchEvent(event);
     }
     if (type === "sub") {
-      const number = this.state.number;
-      this.setState({ number: number - 1 });
+      this.props.sub(this.props.number);
+
+      let event = new CustomEvent("acknowledgeKong", { detail: { type: "sub" } });
+      document.dispatchEvent(event);
     }
   }
   handleJSLoad() {
-    if (this.state.number === 110) {
+    if (this.props.number === 10) {
       var aScript = document.createElement('script');
       aScript.type = 'text/javascript';
       aScript.src = 'public/angular.js';
-
       document.head.appendChild(aScript);
       aScript.onload = function () {
-        console.log("fdfdfdf");
+        console.log("I'm angular, I'm loaded")
       };
       return <angular-app>loading...</angular-app>;
     }
@@ -47,19 +46,21 @@ export default class App extends React.Component {
   render() {
     return (<div className="container">
       {this.handleJSLoad()}
-      King Welcome
+      <span>I'm the King</span>
+      <div>
       <Button bsStyle="primary" onClick={() => this.handleAction("add")}>
         +
       </Button>
       <FormControl
         data-testid="number"
         type="text"
-        value={this.state.number}
+        value={this.props.number}
         onChange={this.handleChange}
       />
       <Button bsStyle="primary" onClick={() => this.handleAction("sub")}>
         -
       </Button>
+      </div>
     </div>
     );
   }

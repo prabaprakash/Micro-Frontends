@@ -1,6 +1,7 @@
 <template>
-  <div class="hello"><p>Avatar from VUE</p>
-  <div>{{msg}}</div>
+  <div>
+    <h1>I'm the VUE, Rendered Onload</h1>
+    <div>{{msg}}</div>
   </div>
 </template>
 

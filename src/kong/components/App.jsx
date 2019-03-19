@@ -7,10 +7,12 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    document.addEventListener("onsumitsubmit",  (event) => { // (1)
+    document.addEventListener("acknowledgeKong",  (event) => { // (1)
       console.log(event);
-      // alert("Hello from summit"); // Hello from H1
-      this.props.add( this.props.number + event.detail.number);
+      if(event.detail.type === "add")
+        this.props.change( this.props.number + 10);
+      if(event.detail.type === "sub")
+        this.props.change( this.props.number - 10);
     });
   }
   handleChange(e) {
@@ -18,7 +20,8 @@ export default class App extends React.Component {
   }
   render() {
     return (<div className="container">
-      Kong
+      <span>I'm the Kong, I'm 10 times the King</span>
+      <div>
       <Button bsStyle="primary" onClick={() => this.props.add(this.props.number)}>
         +
       </Button>
@@ -31,6 +34,7 @@ export default class App extends React.Component {
       <Button bsStyle="primary" onClick={() => this.props.sub(this.props.number)}>
         -
       </Button>
+      </div>
     </div>
     );
   }
